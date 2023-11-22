@@ -1,0 +1,579 @@
+.page-template-home {
+  section {
+    @include mq(tablet) {
+      min-height: 70rem;
+      height: vw(800px);
+    }
+    @include mq(desktop-wide) {
+      height: 80rem;
+    }
+  }
+}
+.hp-banner {
+  position: relative;
+  color: $clr-white;
+  height: 100vh !important;
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      object-position: bottom;
+    }
+  }
+  &__content {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+    width: 100%;
+    .row {
+      @include mq(tablet) {
+        align-items: flex-end;
+      }
+    }
+  }
+  &__img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    &--big {
+      width: svw(309px);
+      height: svw(248px);
+      z-index: 1;
+      @include mq(tablet) {
+        width: vw(825px);
+        height: vw(665px);
+        max-width: 82.5rem;
+        max-height: 66.5rem;
+      }
+    }
+    &--small {
+      width: svw(145px);
+      height: svw(180px);
+      z-index: 2;
+      @include mq(tablet) {
+        width: vw(333px);
+        height: vw(418px);
+        max-width: 33.3rem;
+        max-height: 41.8rem;
+      }
+    }
+  }
+  .btn-scroll-next {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 50%;
+    bottom: 3rem;
+    transform: translateX(-50%) rotate(45deg);
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $clr-black;
+    border-right: 1px solid $clr-black;
+    cursor: pointer;
+    @extend .hide-text;
+  }
+}
+
+.full-content-image {
+  @include mq(tablet) {
+    height: 100vh;
+    border-top: 1px solid $clr-border;
+  }
+  &__inner {
+    display: flex;
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+    height: 100%;
+    @include mq(tablet, max) {
+      flex-direction: column-reverse;
+    }
+    @include mq(tablet) {
+      justify-content: space-between;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    @include when-inside('.full-content-image--left') {
+      @include mq(tablet) {
+        flex-direction: row-reverse;
+        .full-content-image__content {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    @include mq(tablet) {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.hp-hotel {
+  @include mq(tablet) {
+    padding-top: vw(118px);
+    padding-bottom: vw(68px);
+  }
+  @include mq(desktop-wide) {
+    padding-top: 11.8rem;
+    padding-bottom: 6.8rem;
+  }
+  &__content {
+    @include mq(tablet) {
+      padding-left: 2rem;
+      width: vw(788px);
+      max-width: 78.8rem;
+    }
+    .section-subheading {
+      margin-bottom: 1.6rem;
+    }
+    .section-copy {
+      margin-top: 15rem;
+      @include mq(tablet) {
+        margin-top: auto;
+        width: vw(390px);
+        max-width: 39rem;
+      }
+    }
+  }
+  &__media {
+    @include mq(tablet) {
+      width: vw(505px);
+      max-width: 50.5rem;
+    }
+    &-caption {
+      margin-top: 1rem;
+      @extend .text-caption;
+    }
+  }
+  &__video {
+    height: 45.8rem;
+    @include mq(tablet, max) {
+      margin-bottom: 4.4rem;
+    }
+    @include mq(tablet) {
+      height: vw(684px);
+      max-height: 100%;
+    }
+    @include mq(desktop-wide) {
+      height: 68.4rem;
+    }
+  }
+}
+
+.hp-rooms {
+  &__left {
+    padding-top: 2.8rem;
+    @include mq(tablet) {
+      padding-top: 2.3rem;
+      padding-left: 2rem;
+      padding-bottom: 2.3rem;
+      width: vw(500px);
+      max-width: 50rem;
+    }
+    .section-copy {
+      margin-top: 9.5rem;
+      @include mq(tablet) {
+        margin-top: auto;
+        width: vw(390px);
+        max-width: 39rem;
+      }
+    }
+  }
+  &__right {
+    position: relative;
+    display: flex;
+    @include mq(tablet, max) {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      flex-direction: column-reverse;
+    }
+    @include mq(tablet) {
+      width: vw(700px);
+      max-width: 70rem;
+    }
+  }
+  &__thumbnails {
+    @include mq(tablet, max) {
+      display: grid;
+      margin-top: 2rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 1rem;
+    }
+    @include mq(tablet) {
+      margin-right: 2rem;
+      width: 6rem;
+      flex-shrink: 0;
+    }
+    &:hover > *,
+    &:focus > * {
+      opacity: 0.25;
+    }
+    > *:hover {
+      opacity: 1;
+    }
+  }
+  &__thumbnail {
+    position: relative;
+    height: svw(67px);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    &::before {
+      @include pseudo-elements;
+      background: rgba(88, 40, 29, 0.80);
+      @include element-hidden;
+      z-index: 1;
+    }
+    &:hover::before {
+      @include element-show;
+    }
+    @include mq(tablet) {
+      margin-bottom: 1.6rem;
+      height: 8.6rem;
+    }
+  } 
+  &__carousel {
+    @include mq(tablet, max) {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    @include mq(tablet) {
+      width: vw(620px);
+      max-width: 62rem;
+    }
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+  }
+  &__slide {
+    position: relative;
+    height: svw(640px);
+    @include mq(tablet, max) {
+      max-height: 64rem;
+    }
+    @include mq(tablet) {
+      height: 100%;
+    }
+    &-fancybox {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      transition: all .3s ease-in-out;
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__caption {
+    position: absolute;
+    @include mq(tablet) {
+      left: 6rem;
+      bottom: 5rem;
+      width: 10rem;
+      max-width: 15rem;
+      transform: translateX(-100%);
+    }
+    @include mq(desktop-wide) {
+      width: 15rem;
+      bottom: 17rem;
+    }
+  }
+}
+
+.hp-taste {
+  .full-content-image__inner {
+    @include mq(tablet, max) {
+      flex-direction: column;
+    }
+  }
+  &__media {
+    position: relative;
+    @include mq(tablet, max) {
+      margin-left: -2rem;
+      margin-right: -2rem;
+    }
+    @include mq(tablet) {
+      margin-right: vw(73px);
+      width: vw(690px);
+      max-width: 69rem;
+    }
+    @include mq(desktop-wide) {
+      margin-right: 7.3rem;
+    }
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+  }
+  &__fancybox {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    transition: all .3s ease-in-out;
+    z-index: 2;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  &__slide {
+    height: svw(640px);
+    @include mq(tablet, max) {
+      max-height: 64rem;
+    }
+    @include mq(tablet) {
+      height: 100%;
+    }
+  }
+  &__content {
+    padding-top: 3.7rem;
+    @include mq(tablet) {
+      margin-right: auto;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    @include mq(desktop-wide) {
+      // padding-top: 6.7rem;
+      padding: 4rem 9rem;
+    }
+    .section-copy {
+      padding-top: 3rem;
+      border-top: 1px solid $clr-black;
+      @include mq(tablet) {
+        width: vw(410px);
+        max-width: 41rem;
+      }
+    }
+  }
+  &__top {
+    @include mq(tablet) {
+      display: flex;
+      align-items: flex-start;
+    }
+    .section-heading {
+      margin-right: 1rem;
+    }
+  }
+  &__links {
+    display: flex;
+    margin-top: 16rem;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style-type: none;
+    @include mq(tablet) {
+      margin-top: auto;
+      &:hover > *,
+      &:focus > * {
+        opacity: 0.25;
+      }
+      & > *:hover,
+      & > *:focus {
+        opacity: 1;
+        &::after {
+          @include element-show;
+        }
+      }
+    }
+
+  }
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
+    @extend .text-md;
+    text-transform: uppercase;
+    color: $clr-black;
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      right: -1.5rem;
+      transform: translateY(-50%);
+      @include triangle(left, $clr-primary, 8px, 8px);
+      @include element-hidden;
+    }
+    @include mq(tablet, max) {
+      &.is-active {
+        opacity: 1;
+        &::after {
+          @include element-show;
+        }
+      }
+    }
+  }
+  &__amenities {
+    @extend .text-md;
+    text-transform: uppercase;
+    color: $clr-black;
+    p {
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.hp-full-image {
+  position: relative;
+  @include mq(tablet, max) {
+    height: svw(557px);
+    max-height: 55.7rem;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 9.5rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include cover-image;
+  }
+  &__caption {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    @extend .font-caption;
+    color: $clr-white;
+    z-index: 1;
+  }
+  &__fancybox {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1;
+  }
+}
+
+.hp-explore {
+  &__content {
+    @include mq(tablet) {
+      display: flex;
+      padding-top: 5rem;
+      padding-left: 2rem;
+      width: vw(500px);
+      flex-direction: column;
+      max-width: 50rem;
+    }
+    .section-copy {
+      margin-top: 12rem;
+      @include mq(tablet) {
+        margin-top: auto;
+      } 
+    }
+  }
+  &__media {
+    position: relative;
+    display: flex;
+    @include mq(tablet, max) {
+      flex-direction: column-reverse;
+    }
+    @include mq(tablet) {
+      width: vw(852px);
+      justify-content: space-between;
+      max-width: 85.2rem;
+    }
+  }
+  &__images {
+    @include mq(tablet, max) {
+      margin-bottom: 4rem;
+      margin-left: -2rem;
+      margin-right: -2rem;
+    }
+    @include mq(tablet) {
+      width: vw(691px);
+      max-width: 69.1rem;
+    }
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+  }
+  &__image {
+    height: svw(560px);
+    @include mq(tablet, max) {
+      max-height: 56rem;
+    }
+    @include mq(tablet) {
+      height: 100%;
+    }
+  }
+  &__links {
+    display: flex;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    @include mq(tablet) {
+      margin-top: 5rem;
+      &:hover > *,
+      &:focus > * {
+        opacity: 0.25;
+      }
+      & > *:hover,
+      & > *:focus {
+        opacity: 1;
+        &::after {
+          @include element-show;
+        }
+      }
+    }
+  }
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
+    @extend .text-md;
+    text-transform: uppercase;
+    cursor: pointer;
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      @include element-hidden;
+      @include mq(tablet, max) {
+        right: -1.5rem;
+        @include triangle(left, $clr-primary, 8px, 8px);
+      }
+      @include mq(tablet) {
+        left: -1.5rem;
+        @include triangle(right, $clr-primary, 8px, 8px);
+      }
+    }
+    @include mq(tablet, max) {
+      &.is-active {
+        opacity: 1;
+        &::after {
+          @include element-show;
+        }
+      }
+    }
+  }
+  &__caption {
+    position: absolute;
+    @include mq(tablet) {
+      left: 0;
+      bottom: 5rem;
+      width: 10rem;
+    }
+    @include mq(desktop-wide) {
+      width: 15rem;
+      bottom: 12rem;
+    }
+  }
+}

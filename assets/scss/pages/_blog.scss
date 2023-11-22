@@ -1,0 +1,11 @@
+.blog-posts {
+  margin-bottom: 6rem;
+  @include mq(tablet) {
+    margin-bottom: 7rem;
+  }
+}
+.page-template-blog {
+  .default-banner__link {
+    font-size: 1.4rem;
+  }
+}

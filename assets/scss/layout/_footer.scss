@@ -1,0 +1,190 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer {
+  // padding-top: 8.7rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  background-color: $clr-off-black;
+  color: $clr-off-white;
+  @extend .text-lg;
+  @include mq(tablet) {
+    padding-top: 5rem;
+  }
+  .container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      max-width: 120rem;
+    }
+    @include mq(desktop-wide) {
+      max-width: 144rem;
+    }
+  }
+  &-logo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16rem;
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+    &__wrapper {
+      // margin-bottom: 9rem;
+      margin-bottom: 4rem;
+      text-align: center;
+      @include mq(tablet) {
+        margin-bottom: 7rem;
+      }
+    }
+  }
+  &-main {
+    @include mq(tablet) {
+      margin-top: auto;
+    }
+    &__left,
+    &__right {
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  &-menu {
+    @include mq(tablet) {
+      columns: 2;
+      column-gap: vw(160px);
+      max-width: 39rem;
+    }
+    @include mq(desktop-wide) {
+      column-gap: 16rem;
+    }
+    .menu-item {
+      a {
+        @extend .underline-animation;
+        font: 400 1.2rem/2rem $f-text;
+        text-transform: capitalize;
+        color: $clr-off-white !important;
+      }
+    }
+  }
+  &-image {
+    margin: 2.2rem auto;
+    max-width: 10rem;
+    @include mq(tablet) {
+      margin: 3rem auto 3rem;
+    }
+    &__wrapper {
+      text-align: center;
+    }
+  }
+  &-info {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    @include mq(tablet) {
+      margin-left: auto;
+    }
+    // p {
+    //   margin-bottom: 1em;
+    // }
+    a:not([class]) {
+      @extend .underline-animation;
+    }
+  }
+  &-bottom {
+    display: flex;
+    margin-top: 1.1rem;
+    align-items: center;
+    @include mq(tablet) {
+      margin-top: vw(74px);
+      justify-content: flex-end;
+    }
+    @include mq(desktop-wide) {
+      margin-top: 7.4rem;
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      .menu-item {
+        &:not(:first-child) {
+          margin-left: 1rem
+        }
+      }
+      a {
+        img {
+          width: 2.4rem;
+          height: 2.4rem;
+          transition: transform .3s ease-in-out;
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+  &-copyright {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  &-form {
+    position: relative;
+    @include mq(tablet) {
+      margin-top: vw(70px);
+      max-width: 39rem;
+    }
+    @include mq(desktop-wide) {
+      margin-top: 7rem;
+    }
+    iframe {
+      width: 100%;
+      height: 7rem;
+      border: none;
+    }
+    input[type=email] {
+      display: block;
+      width: 100%;
+      padding: 5px 0;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $clr-secondary;
+      color: $clr-secondary;
+      text-transform: uppercase;
+      @extend .text-md;
+      &::placeholder {
+        color: $clr-secondary;
+      }
+    }
+    input[type=submit] {
+      position: absolute;
+      margin: 0;
+      top: 5px;
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      @extend .hide-text;
+      @include svg-background('<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.0078125 4L10.9092 4L0.0078125 4Z" fill="%23D4C38D"/><path d="M11.2628 4.35355C11.458 4.15829 11.458 3.84171 11.2628 3.64645L8.08079 0.464465C7.88553 0.269203 7.56895 0.269203 7.37369 0.464465C7.17842 0.659728 7.17842 0.97631 7.37369 1.17157L10.2021 4L7.37369 6.82843C7.17842 7.02369 7.17842 7.34027 7.37369 7.53553C7.56895 7.7308 7.88553 7.7308 8.08079 7.53553L11.2628 4.35355ZM0.00781254 4.5L10.9092 4.5L10.9092 3.5L0.00781246 3.5L0.00781254 4.5Z" fill="%23D4C38D"/></svg>');
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
+    div.textBlock {
+      color: $clr-secondary !important;
+    }
+  }
+}

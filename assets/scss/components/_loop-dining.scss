@@ -1,0 +1,67 @@
+.loop-dining {
+  &__image {
+    position: relative;
+    margin-bottom: 1.5rem;
+    height: svw(197px);
+    @include mq(tablet) {
+
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    &::before {
+      top: 0;
+      height: svw(53px);
+      background: linear-gradient(0, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.24) 100%);
+    }
+    &::after {
+      bottom: 0;
+      height: svw(51px);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.39) 100%);
+    }
+  }
+  &__menus {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    font: 400 1.3rem/1 $f-text;
+    text-transform: uppercase;
+    p {
+      margin-right: 1rem;
+      padding-right: 1rem;
+      border-right: 1px solid $clr-black;
+    }
+    a {
+      &:not(:last-child) {
+        margin-right: 1rem;
+        &::before {
+          position: absolute;
+          bottom: 0;
+          right: -4px;
+          content: ', ';
+        }
+      }
+    }
+  }
+  &__content {
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__title {
+    @include mq(tablet) {
+      margin-right: 2rem;
+    }
+  }
+  .btn-reserve {
+    margin-left: auto;
+  }
+}

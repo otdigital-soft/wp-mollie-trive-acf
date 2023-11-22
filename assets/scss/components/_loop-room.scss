@@ -1,0 +1,140 @@
+.loop-room {
+  padding-bottom: 1rem;
+  overflow: hidden;
+  &__image {
+    position: relative;
+    height: svw(197px);
+    max-height: 19.7rem;
+    @include mq(tablet) {
+      height: vw(760px);
+      max-height: 76rem;
+    }
+    @include when-inside('.rooms-grid') {
+      @include mq(tablet) {
+        height: vw(375px);
+        max-height: 37.5rem;
+      }
+    }
+    > img {
+      @include cover-image;
+    }
+  }
+  &__carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    div {
+      display: block;
+      margin: 0 !important;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__slide {
+    position: relative;
+    display: block;
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.39) 100%);
+      pointer-events: none;
+      @include mq(tablet) {
+        height: vw(200px);
+        max-height: 20rem;
+        @include when-inside('.rooms-grid') {
+          height: vw(97.5px);
+          max-height: 9.75rem;
+        }
+      }
+    }
+  }
+  &__3d {
+    position: absolute;
+    color: $clr-white;
+    z-index: 1;
+    @include mq(tablet) {
+      left: 2rem;
+      bottom: 2rem;
+    }
+  }
+  .img-fancybox__btn {
+    @include mq(tablet) {
+      right: 2rem;
+      bottom: 2rem;
+    }
+  }
+  &__details {
+    margin-top: 1.5rem;
+    color: $clr-black;
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+      @include when-inside('.rooms-grid') {
+        flex-wrap: wrap;
+      }
+    }
+  }
+  &__meta {
+    display: flex;
+    align-items: center;
+    @include mq(tablet, max) {
+      margin-top: 2rem;
+    }
+    @include mq(tablet) {
+      margin-left: 1rem;
+    }
+    .sep {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+  &__amenities {
+    display: none;
+    background-color: $clr-off-white;
+    ul {
+      list-style-type: square;
+      li::marker {
+        color: $clr-primary;
+      }
+    }
+  }
+  &__title {
+    @include when-inside('.rooms-grid') {
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      flex-basis: 100%;
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    @include mq(tablet, max) {
+      margin-top: 5rem;
+    }
+    @include mq(tablet) {
+      margin-left: auto;
+    }
+  }
+  &__more {
+    @include when-inside('.rooms-grid') {
+      @include mq(tablet) {
+        display: none;
+      }
+    }
+  }
+  &__booking {
+    margin-left: 1.8rem;
+    @include mq(tablet, max) {
+      flex-grow: 1;
+    }
+    @include mq(tablet) {
+      margin-left: 1.4rem;
+    }
+  }
+}

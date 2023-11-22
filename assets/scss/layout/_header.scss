@@ -1,0 +1,234 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  transition: all .3s ease-in-out;
+  z-index: 200;
+  @include adminbar-offset;
+  @include mq(tablet) {
+    padding-bottom: 6rem;
+  }
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-logo {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    width: 15.7rem;
+    text-align: center;
+    transform: translateX(-50%);
+    @include mq(tablet) {
+      width: 21.6rem;
+    }
+    @include when-inside('.header--sticky') {
+      top: 1.6rem;
+    }
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &__image {
+      @include when-inside('.header--sticky') {
+        display: none;
+      }
+    }
+    &__scroll {
+      display: none;
+      @include mq(tablet) {
+        width: 3.3rem;
+      }
+      @include when-inside('.header--sticky') {
+        display: block;
+      }
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $clr-off-white;
+    @include element-hidden;
+    overflow: auto;
+    @include when-inside('.is-opened') {
+      @include element-show;
+    }
+    .container-fluid {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    nav {
+      @include mq(tablet) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  &-booking {
+    z-index: 100;
+    @include when-inside('.header--light:not(.header--sticky):not(.is-opened)') {
+      border-color: $clr-white;
+      color: $clr-white;
+      &:hover {
+        border-color: $clr-primary;
+      }
+    }
+  }
+
+  &-nav {
+    margin-top: 8.6rem;
+    list-style: none;
+    @include mq(tablet) {
+      margin-top: vw(140px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 14rem;
+    }
+    &:hover > .menu-item--lg {
+      opacity: 0.25;
+    }
+    & > .menu-item--lg:hover {
+      opacity: 1;
+    }
+    .menu-item {
+      transition: opacity .3s ease-in-out;
+      // transition delay base on element index to create stagger effect
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) a {
+          transition-delay: 0.1s * $i;
+        }
+      }
+
+      > a {
+        display: inline-block;
+        @include typography(21px, 26px, 24px, 32px, 400);
+        letter-spacing: -0.84px;
+        text-transform: uppercase;
+        color: $clr-subheading;
+        opacity: 0;
+        transform: translateX(-2rem);
+        transition: all .3s ease-in-out;
+        @include mq(tablet) {
+          letter-spacing: -0.96px;
+        }
+      }
+      &--lg {
+        > a {
+          @include typography(54px, 54px, 68px, 72px, 400);
+          letter-spacing: -2.16px;
+          color: $clr-heading;
+          @include mq(tablet) {
+            letter-spacing: -2.72px;
+          }
+        }
+        & + .menu-item:not(.menu-item--lg) {
+          margin-top: 4.6rem;
+          @include mq(tablet) {
+            margin-top: 3rem;
+          }
+        }
+      }
+      &-has-children {
+        > a {
+          position: relative;
+          padding-right: 3rem;
+          &::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            right: 0;
+            @include triangle(bottom, $clr-heading, 12px, 12px);
+            transform: translateY(-50%);
+            transition: all .3s ease-in-out;
+          }
+          &.is-opened {
+            &::after {
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+        }
+      }
+      .sub-menu {
+        display: none;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding-left: 1rem;
+        list-style: none;
+        a {
+          @extend .text-lg;
+          @extend .underline-animation;
+          text-transform: capitalize;
+          color: $clr-black;
+        }
+      }
+    }
+  }
+  
+  &-information {
+    margin-top: auto;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all .3s ease-in-out;
+    @include mq(tablet, max) {
+      margin-bottom: 7rem;
+    }
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+    }
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      @include mq(tablet) {
+        margin-left: 1rem;
+      }
+    }
+  }
+  &--light {
+    &::before {
+      @include pseudo-elements;
+      background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+      opacity: 0.25;
+    }
+  }
+  &--sticky {
+    background-color: $clr-off-white;
+    border-bottom: 0.5px solid $clr-border;
+    @include mq(tablet) {
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+    }
+    &::before {
+      content: none;
+    }
+  }
+  &.is-opened {
+    .header-nav {
+      .menu-item a {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .header-information {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  &--hide {
+    transform: translateY(-100%);
+  }
+}

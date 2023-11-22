@@ -1,0 +1,93 @@
+/**
+ * Basic typography style for copy text
+ */
+.h0 {
+  @include typography(54px, 56px, 78px, 78px, 400);
+  letter-spacing: -2.16px;
+  text-transform: uppercase;
+}
+h1,
+.h1 {
+  // @include typography(48px, 48px, 74px, 78px, 400);
+  @include typography(54px, 64px, 74px, 64px, 400);
+  text-transform: uppercase;
+  letter-spacing: -1.92px;
+  @include mq(tablet) {
+    letter-spacing: -2.96px;
+  }
+}
+h2,
+.h2 {
+  // @include typography(44px, 44px, 66px, 70px, 400);
+  @include typography(54px, 54px, 66px, 70px, 400);
+  letter-spacing: -1.76px;
+  text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: -2.64px;
+  }
+}
+h3,
+.h3 {
+  @include typography(40px, 42px, 54px, 50px, 400);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: -0.5px;
+  }
+}
+h4,
+.h4 {
+  @include typography(30px, 34px, 44px, 40px, 400);
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: -1.76px;
+  }
+}
+h5,
+.h5 {
+  @include typography(24px, 28px, 30px, 24px, 400);
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: -1.2px;
+  }
+}
+h6,
+.h6 {
+  font: 400 2.4rem/1 $f-heading;
+  // letter-spacing: -0.96px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-lg {
+  font: 400 1.7rem/2.1rem $f-text;
+}
+
+.text-md {
+  font: 400 1.4rem/2.1rem $f-text;
+}
+
+.text-normal {
+  font: 400 1.4rem/2.1rem $f-text;
+  @include mq(tablet) {
+    font-size: 1.7rem;
+  }
+}
+
+.text-caption {
+  font: 400 1.4rem/2.1rem $f-caption;
+  font-style: italic;
+}
+
+.text-caption-lg {
+  font: 400 1.4rem/2.1rem $f-caption;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+}
+
+.font-caption {
+  font-family: $f-caption;
+  font-style: italic;
+}

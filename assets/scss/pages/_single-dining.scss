@@ -1,0 +1,121 @@
+.single-dining {
+  .full-height-banner {
+    @include mq(tablet, max) {
+      height: 100vh;
+    }
+    &__heading {
+      margin-left: auto;
+      text-align: right;
+    }
+    .btn-scroll-next {
+      transform: rotate(-90deg) translateY(-100%);
+    }
+  }
+  .room-gallery {
+    &__image {
+      &:nth-child(3n+2) {
+        @include mq(tablet) {
+          width: vw(600px);
+          max-width: 67.5rem;
+          img {
+            height: vw(990px);
+            max-height: 99rem;
+          }
+        }
+      }
+      &:nth-child(3n) {
+        @include mq(tablet) {
+          width: vw(500px);
+          max-width: 56.4rem;
+          img {
+            height: vw(790px);
+            max-height: 79rem;
+          }
+        }
+      }
+      &:nth-child(3n+1) {
+        @include mq(tablet) {
+          margin-left: auto;
+          width: vw(1310px);
+          max-width: 131rem;
+          img {
+            height: vw(723px);
+            max-height: 72.3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dining-details {
+  margin-top: 3rem;
+  margin-bottom: 8rem;
+  @include mq(tablet) {
+    margin-top: 5rem;
+    margin-bottom: 12rem;
+  }
+  &__content {
+    @include mq(tablet) {
+      max-width: 45rem;
+    }
+  }
+  &__reserve {
+    @include mq(tablet, max) {
+      margin-top: 5rem;
+      order: 1;
+    }
+    @include mq(tablet) {
+      text-align: right;
+    }
+  }
+  .row {
+    @include mq(tablet) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  &__hm {
+    margin-top: 5rem;
+    font: 400 1.4rem/2.8rem $f-text;
+    @include mq(tablet) {
+      display: flex;
+      margin-top: vw(113px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 11.3rem;
+    }
+    .text-lg {
+      margin-bottom: 1rem;
+      font: 700 1.4rem/2.1rem $f-caption;
+      letter-spacing: 1.68px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+  }
+  &__items {
+    @include mq(tablet, max) {
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+    @include mq(tablet) {
+      margin-right: 2.4rem;
+    }
+  }
+  .btn-reserve  {
+    @include mq(tablet, max) {
+      width: 100%;
+    }
+  }
+}
+
+.dining-related {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid $clr-border;
+  @include mq(tablet) {
+    padding-bottom: 7.5rem;
+  }
+}

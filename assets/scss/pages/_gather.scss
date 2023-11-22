@@ -1,0 +1,196 @@
+.page-template-gather {
+  .default-banner {
+    position: relative;
+    color: $clr-off-white;
+    @include mq(tablet, max) {
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: flex-end;
+      &__images {
+        margin-bottom: 0;
+      }
+    }
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100vh;
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: svw(407px);
+      background: linear-gradient(0, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 80.73%);
+      z-index: 1;
+      pointer-events: none;
+      @include mq(tablet) {
+        height: vw(552px);
+      }
+    }
+    .col-md-6 {
+      @include mq(tablet, max) {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+      }
+      &:first-child {
+        @include mq(tablet, max) {
+          display: none;
+        }
+      }
+    }
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__title {
+      color: $clr-off-white;
+      @include mq(tablet, max) {
+        margin-bottom: 0;
+      }
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+    .breadcrumb-trail {
+      color: $clr-off-white;
+      .sep {
+        border-left-color: $clr-off-white;
+      }
+    }
+    &__link {
+      @include mq(tablet, max) {
+        padding-right: 0;
+      }
+      &::after {
+        border-right-color: $clr-off-white;
+      }
+    }
+  }
+  .page-navigation {
+    position: absolute;
+    width: 100%;
+    @include element-hidden;
+    &.is-visible {
+      position: fixed;
+      @include element-show;
+    }
+  }
+  .two-columns-content {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+    @include mq(tablet, max) {
+      border-bottom: 1px solid $clr-border;
+    }
+    @include mq(tablet) {
+      padding-top: 12.5rem;
+      padding-bottom: 12.5rem;
+    }
+    &__heading {
+      @extend .h1;
+      @include mq(tablet) {
+        margin-left: vw(100px);
+      }
+      @include mq(desktop-wide) {
+        margin-left: 10rem;
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        margin-left: vw(80px);
+        max-width: 41.5rem;
+      }
+      @include mq(desktop-wide) {
+        margin-left: 8rem;
+      }
+    }
+    &__copy {
+      margin-bottom: 2rem;
+    }
+  }
+  .hp-taste {
+    &__media {
+      position: relative;
+      > img {
+        @include cover-image;
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: vw(450px);
+        max-width: 45rem;
+      }
+    }
+    .section-copy {
+      padding-top: 0;
+      border-top: 0;
+      // font-size: 1.4rem;
+      // line-height: 2.1rem;
+      h5 {
+        margin-bottom: 1.7rem;
+        font: 400 1.7rem/2.1rem $f-caption;
+        letter-spacing: 1.68px;
+        text-transform: uppercase;
+      }
+      h6 {
+        margin-bottom: 1.7rem;
+        line-height: 2.7rem;
+      }
+    }
+    &.full-content-image--left {
+      .hp-taste__media {
+        @include mq(tablet) {
+          margin-right: 0;
+          margin-left: vw(73px);
+        }
+        @include mq(desktop-wide) {
+          margin-left: 7.3rem;
+        }
+      }
+      .hp-taste__content {
+        @include mq(tablet) {
+          margin-left: var(--gutter);
+        }
+      }
+    }
+  }
+  .content-form {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+    border-top: 1px solid $clr-border;
+    @include mq(tablet) {
+      padding-top: 9rem;
+      padding-bottom: 11rem;
+    }
+    .section-heading {
+      @include mq(tablet, max) {
+        margin-bottom: 5rem;
+      }
+      @include mq(tablet) {
+        margin-left: 2rem;
+      }
+    }
+    &__form {
+      --grid-gutter-width: 0.5rem; 
+      .col {
+        margin-bottom: 1rem;
+      }
+      .jcf-option {
+        font: 400 1.4rem/2.1rem $f-text;
+        letter-spacing: -0.14px;
+      }
+    }
+  }
+}

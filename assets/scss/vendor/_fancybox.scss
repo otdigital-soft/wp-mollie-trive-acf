@@ -1,0 +1,41 @@
+.fancybox {
+  &-infobar {
+    @extend .text-md;
+  }
+  &-button {
+    background-color: transparent;
+    &--zoom,
+    &--play,
+    &--thumbs,
+    &--close:first-child {
+      display: none !important;
+    }
+  }
+  &-popup-inline {
+    display: none;
+    background-color: $clr-off-white;
+    &__heading {
+      font: 400 2.4rem/1 $f-text;
+    }
+    &__content {
+      margin-top: 3rem;
+      ul {
+        list-style-type: square;
+        list-style-position: inside;
+        li {
+          &::marker {
+            color: $clr-primary;
+          }
+        }
+        @include mq(tablet) {
+          column-count: 2;
+          column-gap: 2rem;
+        }
+      }
+    }
+    &__img {
+      width: 100%;
+      max-width: 50rem;
+    }
+  }
+}

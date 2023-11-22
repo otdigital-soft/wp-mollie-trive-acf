@@ -1,0 +1,57 @@
+.header--hide + main .page-navigation {
+  top: 0;
+}
+.page-navigation {
+  position: sticky;
+  top: 5.6rem;
+  padding: 2rem 3rem 3rem 0;
+  background-color: $clr-off-white;
+  border-bottom: 0.5px solid $clr-border;
+  z-index: 100;
+  transition: all .3s ease-in-out;
+  overflow: auto;
+  @include mq(tablet) {
+    top: 7.6rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    li {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      &:last-child {
+        padding-left: 2rem;
+        border-left: 1px solid $clr-border;
+      }
+    }
+  }
+  &__link {
+    position: relative;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    font: 400 1.4rem/1.8rem $f-text;
+    text-transform: uppercase;
+    color: $clr-black;
+    white-space: nowrap;
+    cursor: pointer;
+    &::after {
+      position: absolute;
+      content: '';
+      left: 50%;
+      bottom: -1rem;
+      @include triangle(top, $clr-primary, 8px, 8px);
+      transform: translateX(-50%);
+      @include element-hidden;
+    }
+    &.is-active::after {
+      @include element-show;
+    }
+    @include mq(tablet) {
+      &:hover::after {
+        @include element-show;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.sticky-booking-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  width: calc(100% - 4rem);
+  max-width: 36rem;
+  border-color: $clr-off-white !important;
+  color: $clr-text !important;
+  background: $clr-off-white !important;
+  transform: translateX(-50%);
+  z-index: 10;
+  @include element-hidden;
+  @include when-inside('.home') {
+    &:not(.is-sticky) {
+      border-color: $clr-white !important;
+      color: $clr-white !important;
+      background: transparent !important;
+      @include element-show;
+    }
+  }
+  &.is-sticky {
+    border-color: $clr-black !important;
+    background: $clr-off-white !important;
+    color: $clr-black !important;
+    @include element-show;
+  }
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  margin-top: 6rem;
+  align-items: center;
+  justify-content: center;
+  .page-numbers {
+    display: inline-flex;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 3rem;
+    height: 3rem;
+    font: 400 1.6rem/1 $f-text;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    &.current {
+      background-color: $clr-primary;
+      color: $clr-white;
+    }
+  }
+  a {
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      color: $clr-primary;
+    }
+  }
+}

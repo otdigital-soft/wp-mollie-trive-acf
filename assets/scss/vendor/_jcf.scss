@@ -1,0 +1,52 @@
+.jcf {
+  &-select {
+    position: relative;
+    display: block;
+    &-text {
+      display: block;
+      padding: 1.5rem;
+      width: 100%;
+      appearance: none;
+      background-color: transparent;
+      border: 1px solid $clr-black;
+      border-radius: 0;
+      color: $clr-black;
+      outline-color: $clr-black;
+      font: 400 1.4rem/2.1rem $f-text;
+      letter-spacing: -0.14px;
+      cursor: pointer;
+    }
+    &-opener {
+      position: absolute;
+      content: '';
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      transition: transform .3s ease-in-out;
+      @include triangle(bottom, $clr-primary, 8px, 8px);
+      @include when-inside('.jcf-drop-active') {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+    &-drop {
+      position: absolute;
+      background-color: $clr-off-white;
+      border: 1px solid $clr-black;
+      border-top: none;
+      z-index: 1;
+      ul {
+        list-style: none;
+      }
+    }
+  }
+  &-option {
+    display: block;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+      background-color: $clr-primary;
+      color: $clr-off-white;
+    }
+  }
+}

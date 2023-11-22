@@ -1,0 +1,68 @@
+.hamburger {
+  position: relative;
+  z-index: 50;
+  width: 3.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  @include mq(tablet, max) {
+    margin-left: auto;
+  } 
+
+  span {
+    position: relative;
+    font-size: 0;
+    width: 3.5rem;
+    height: 1px;
+    display: block;
+    background: $clr-black;
+    transition: all .3s ease-in-out;
+    @include when-inside('.header--light:not(.header--sticky):not(.is-opened)') {
+      background-color: $clr-white;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 0;
+      height: 1px;
+      display: block;
+      background: $clr-black;
+      transition: all .3s ease-in-out;
+      @include when-inside('.header--light:not(.header--sticky):not(.is-opened)') {
+        background-color: $clr-white;
+      }
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
+
+  @include when-inside('.header.is-opened') {
+    span {
+      background-color: transparent !important;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

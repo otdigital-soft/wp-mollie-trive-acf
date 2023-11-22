@@ -1,0 +1,55 @@
+{
+    "key": "group_64ef6e2b2dbb7",
+    "title": "[CPT] - Post",
+    "fields": [
+        {
+            "key": "field_64ef6e2b85da9",
+            "label": "Related Post",
+            "name": "related_post",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "return_format": "id",
+            "min": "",
+            "max": "",
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1693416343
+}

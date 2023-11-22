@@ -1,0 +1,221 @@
+.page-template-rooms {
+  .hp-taste {
+    &__media,
+    &__links {
+      pointer-events: none;
+    }
+  }
+  .full-height-banner {
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+  #hotel-amenities {
+    @include mq(tablet) {
+      height: auto;
+    }
+    .hp-taste__media {
+      position: relative;
+      @include mq(tablet) {
+        > img {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.full-height-banner {
+  position: relative;
+  display: flex;
+  padding-bottom: 2rem;
+  height: 100vh;
+  color: $clr-off-white;
+  justify-content: flex-end;
+
+  @include mq(tablet) {
+    padding-bottom: 4rem;
+  }
+  @include when-inside('.iphone') {
+    @include mq(tablet, max) {
+      height: 100%;
+      height: -webkit-fill-available;
+    }
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  &::before {
+    top: -9.4rem;
+    height: 43.3rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+    @include mq(tablet) {
+      height: vw(489px);
+      max-height: 48.9rem;
+    }
+  }
+  &::after {
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(0, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+    @include mq(tablet) {
+      height: vw(489px);
+      max-height: 48.9rem;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include cover-image;
+  }
+  .container {
+    position: relative;
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .btn-scroll-next {
+    position: relative;
+    padding-left: 2rem;
+    font: 400 1.6rem/2.1rem $f-text;
+    color: #D4D2BC;
+    background-color: transparent;
+    transform: rotate(-90deg) translateY(100%);
+    border: none;
+    cursor: pointer;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 0;
+      @include triangle(left, #D4D2BC, 8px, 8px);
+      transform: translateY(-50%);
+      transition: all .3s ease-in-out;
+    }
+    &:hover {
+      &::before {
+        left: -0.5rem;
+      }
+    }
+  }
+}
+
+.rooms-details {
+  @include mq(tablet) {
+    padding-top: 7rem;
+    padding-bottom: 11.5rem;
+  }
+  .section-heading {
+    margin-bottom: 1rem;
+    @include mq(tablet) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__content {
+    @include mq(tablet) {
+      max-width: 45rem;
+    }
+  }
+  &__amenities {
+    ul {
+      list-style-type: square;
+      @include mq(tablet) {
+        column-count: 2;
+      }
+      li::marker {
+        color: $clr-primary;
+      }
+    }
+  }
+}
+
+.rooms-block {
+  margin: 7.6rem 0;
+  @include mq(tablet) {
+    margin: 13rem 0;
+  }
+  .section-copy {
+    @include mq(tablet) {
+      max-width: vw(488px);
+    }
+    @include mq(desktop-wide) {
+      max-width: 48.8rem;
+    }
+  }
+  &__content {
+    @include mq(tablet) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    h6 {
+      margin-bottom: 1rem;
+      // font-size: 1.4rem;
+      // line-height: 2.1rem;
+    }
+  }
+  &__top {
+    &-subheading {
+      text-transform: initial;
+    }
+  }
+  .slick-controls {
+    @include mq(tablet, max) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.rooms-slider,
+.rooms-grid {
+  margin-top: 1rem;
+  @include mq(tablet) {
+    margin-top: 6rem;
+  }
+}
+.rooms-slider {
+  .slick-list {
+    overflow: visible;
+  }
+  .slick-slide {
+    margin: 0 4px;
+    @include mq(tablet) {
+      margin: 0 1rem;
+    }
+  }
+}
+.rooms-grid {
+  @include mq(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2rem;
+  }
+  .loop-room {
+    @include mq(tablet, max) {
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}
+
+.full-content-image {
+  @include mq(tablet) {
+    min-height: 70rem;
+    height: vw(800px);
+  }
+  @include mq(desktop-wide) {
+    height: 80rem;
+  }
+}

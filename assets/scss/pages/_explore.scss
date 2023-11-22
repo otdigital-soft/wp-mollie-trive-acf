@@ -1,0 +1,252 @@
+.page-template-explore {
+
+}
+.explore-banner {
+  position: relative;
+  padding-bottom: 2.2rem;
+  display: flex;
+  color: $clr-off-white;
+  height: svw(785px);
+  flex-direction: column;
+  justify-content: flex-end;
+  @include mq(tablet, max) {
+    margin-bottom: 5.4rem;
+  }
+  @include mq(tablet) {
+    padding-bottom: 4.2rem;
+    height: 90vh;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: svw(407px);
+    background: linear-gradient(0, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 80.73%);
+    pointer-events: none;
+    z-index: 1;
+    @include mq(tablet) {
+      height: vw(552px);
+      max-height: 55.2rem;
+    }
+  }
+  .container-fluid {
+    position: relative;
+    z-index: 3;
+  }
+  .row {
+    @include mq(tablet) {
+      align-items: flex-end;
+    }
+  }
+  .breadcrumb {
+    @include mq(tablet, max) {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(calc(100% + 2.2rem));
+    }
+  }
+  .breadcrumb-trail {
+    border-bottom: none;
+    @include mq(tablet, max) {
+      padding-top: 1.4rem;
+      padding-bottom: 1.4rem;
+    }
+    @include mq(tablet) {
+      padding-bottom: 0;
+      color: $clr-white;
+      .sep {
+        border-left-color: $clr-white;
+      }
+    }
+  }
+}
+.explore {
+  &-filters {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 3rem 3rem 0;
+    background-color: $clr-off-white;
+    border-bottom: 0.5px solid $clr-border;
+    li {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+  .jcf-select {
+    text-align: center;
+  }
+  &-cat {
+    @extend .page-navigation__link;
+  }
+  &-locations {
+    position: relative;
+    margin: 3rem -2rem 10rem;
+    overflow: hidden;
+    @include mq(tablet) {
+      display: grid;
+      margin: 7rem 0 13.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 3.5rem;
+    }
+    &-canvas {
+      height: 73.6rem;
+      @include mq(tablet) {
+        height: 85.4rem;
+      }
+    }
+    &-nearby {
+      @include mq(tablet, max) {
+        position: absolute;
+        left: 2rem;
+        bottom: 2rem;
+        width: 100%;
+        max-width: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .locations-nearby {
+        @include mq(tablet, max) {
+          -ms-overflow-style: none;
+          display: flex;
+          height: auto;
+          overflow-x: scroll;
+          overflow-y: visible;
+          padding-left: 0;
+          padding-right: 0;
+          scroll-padding-right: 30px;
+          -webkit-scroll-snap-type: x mandatory;
+          -ms-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          width: 100%;
+        }
+        @include mq(tablet) {
+          padding-right: 3.5rem;
+          height: 85.4rem;
+          overflow-x: visible;
+          overflow-y: scroll;
+          scroll-behavior: smooth;
+          -webkit-scroll-snap-type: y mandatory;
+          -ms-scroll-snap-type: y mandatory;
+          scroll-snap-type: y mandatory;
+          @include custom-scrollbar(4px, $clr-primary);
+        }
+      }
+    }
+  }
+  .mapboxgl-ctrl-bottom-left {
+    display: none;
+  }
+  .mapboxgl-popup-content {
+    padding: 2.7rem 5rem 3rem 4rem;
+    background: #EDECDE;
+    color: $clr-black;
+    box-shadow: -7px -2px 22px 21px rgba(0, 0, 0, 0.02);
+    text-align: center;
+  }
+  .mapboxgl-popup-title {
+    margin-bottom: 1rem;
+    @extend .text-lg;
+  }
+  .mapboxgl-popup-distance {
+    margin-bottom: 2rem;
+    @extend .text-md;
+  }
+  .mapboxgl-popup-buttons {
+    .btn {
+      min-width: 17.7rem;
+    }
+  }
+  .mapboxgl-popup-close-button {
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    @extend .hide-text;
+    @include svg-background('<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="4.73637" y1="4.58004" x2="14.6624" y2="14.5061" stroke="black"/><line x1="4.8691" y1="14.1855" x2="14.1858" y2="4.86879" stroke="black"/></svg>');
+  }
+  .mapboxgl-popup-tip {
+    display: none !important;
+  }
+}
+.nearby-location {
+  display: flex;
+  width: 100%;
+  padding: 2.4rem 2rem;
+  align-items: center;
+  background-color: #E9E7D9;
+  border: none;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  @include mq(tablet, max) {
+    align-items: stretch;
+    margin-right: 1.3rem;
+    flex-shrink: 0;
+    width: 32.2rem;
+  }
+  @include mq(tablet) {
+    padding: 3rem 4rem;
+    background-color: transparent;
+    border-bottom: 1px solid #C5C5C5;
+    &:hover {
+      background-color: #E9E7D9;
+    }
+  }
+  &__img {
+    margin-right: 2rem;
+    flex: 0 0 12.3rem;
+    height: 14.5rem;
+    @include mq(tablet) {
+      margin-right: 5rem;
+      flex: 0 0 22rem;
+      height: 22rem;
+    }
+  }
+  &__content {
+    text-align: left;
+  }
+  &__title {
+    margin-bottom: 1.5rem;
+    @include mq(tablet, max) {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      @include max-line(1);
+    }
+  }
+  &__traffic {
+    margin-bottom: 1.5rem;
+    @include mq(tablet, max) {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
+  }
+  &__excerpt {
+    margin-bottom: 2rem;
+    @include max-line(2);
+    @include mq(tablet, max) {
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
+  }
+  .btn {
+    min-width: auto;
+    @include mq(tablet, max) {
+      font-size: 1.2rem;
+      line-height: 1;
+    } 
+  }
+}
+

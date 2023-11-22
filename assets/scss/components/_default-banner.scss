@@ -1,0 +1,115 @@
+.default-banner {
+  position: relative;
+  padding-top: 19.4rem;
+  padding-bottom: 2.2rem;
+  z-index: 2;
+  @include mq(tablet) {
+    padding-top: 27.3rem;
+    border-bottom: 1px solid $clr-border;
+  }
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  &--images {
+    @include mq(tablet) {
+      padding-top: 45.5rem;
+    }
+  }
+  .row {
+    @include mq(tablet, max) {
+      flex-direction: column-reverse;
+    }
+  }
+  .col-md-6 {
+    display: flex;
+    @include mq(tablet, max) {
+      flex-direction: column-reverse;
+      text-align: right;
+      &:first-child {
+        border-top: 1px solid $clr-border;
+      }
+    }
+    @include mq(tablet) {
+      position: relative;
+      margin-left: auto;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+  &__title {
+    margin-left: auto;
+    color: $clr-heading;
+    @include typography(54px, 64px, 78px, 80px, 400, $f-heading);
+    @include mq(tablet, max) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+    appearance: none;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    cursor: pointer;
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      right: 0;
+      @include triangle(left, $clr-primary, 8px, 8px);
+      transform: translateY(-50%);
+      @include element-hidden;
+    }
+    &.is-active::after,
+    &:hover::after {
+      @include element-show;
+    }
+  }
+  &__image {
+    position: relative;
+    &:last-child {
+      .dinings-banner__link {
+        margin-bottom: 0;
+      }
+    }
+    &:hover .dinings-banner__img {
+      @include mq(tablet) {
+        @include element-show;
+      }
+    }
+  }
+  &__img {
+    @include mq(tablet, max) {
+      display: none;
+    }
+    @include mq(tablet) {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 4.5833333333vw);
+      width: vw(588px);
+      height: vw(818px);
+      max-width: 58.8rem;
+      max-height: 81.8rem;
+      transform: translateY(-50%);
+      @include element-hidden;
+      z-index: 1;
+    }
+    @include mq(desktop-wide) {
+      right: calc(100% + 6.6rem);
+    }
+  }
+  &__images {
+    @include mq(tablet, max) {
+      margin-bottom: 2rem;
+    }
+  }
+  .breadcrumb-trail {
+    padding-bottom: 0;
+    border: none;
+  }
+}

@@ -1,0 +1,103 @@
+.page-template-dinings {
+  // .page-navigation {
+  //   position: absolute;
+  //   width: 100%;
+  //   @include element-hidden;
+  //   &.is-visible {
+  //     position: fixed;
+  //     @include element-show;
+  //   }
+  // }
+  .default-banner {
+    @include mq(tablet, max) {
+      padding-bottom: 0;
+    }
+  }
+  .full-content-image__inner {
+    @include mq(tablet) {
+      border-top: none;
+      border-bottom: 1px solid $clr-border;
+    }
+  }
+  .dinings-single {
+    .section-heading {
+      margin-bottom: 13rem;
+      @include mq(tablet) {
+        margin-bottom: auto;
+      }
+    }
+    .hp-taste__hours,
+    .hp-taste__menus {
+      margin-bottom: 2rem;
+      // font-size: 1.4rem;
+      // line-height: 2.1rem;
+      .text-lg {
+        margin-bottom: 2rem;
+      }
+    }
+    .hp-taste__links {
+      margin: 0;
+    }
+    .hp-taste__link {
+      margin-bottom: 0;
+    }
+    .section-copy {
+      padding-top: 0;
+      border-top: none;
+      // font-size: 1.4rem;
+      // line-height: 2.1rem;
+      h6 {
+        text-transform: initial !important;
+      }
+    }
+    .section-buttons {
+      @include mq(tablet, max) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &:nth-child(odd) {
+      .hp-taste__media {
+        @include mq(tablet) {
+          margin-left: vw(73px);
+          margin-right: 0;
+          order: 1;
+        }
+        @include mq(desktop-wide) {
+          margin-left: 7.3rem;
+        }
+      }
+      .hp-taste__content {
+        @include mq(tablet) {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+    .text-lg {
+      text-transform: uppercase;
+      font-family: $f-caption;
+    }
+  }
+}
+.dinings-service {
+  .section-copy {
+    margin-top: auto;
+    border-top: none;
+    @include mq(tablet, max) {
+      padding-top: 8rem;
+    }
+  }
+  .full-content-image__inner {
+    @include mq(tablet) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      justify-content: center;
+    }
+  }
+  .hp-taste__content {
+    @include mq(tablet) {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.booking-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  @include element-hidden;
+  &.is-opened {
+    @include element-show;
+  }
+  &__inner {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: $clr-off-white;
+    flex-direction: column;
+    transition: all .5s ease-in;
+    will-change: transform;
+    @include mq(tablet) {
+      width: 40rem;
+    }
+    @include when-inside('.is-opened') {
+      transform: none;
+    }
+  }
+  &__header {
+    padding: 2rem;
+    border-bottom: 1px solid $clr-border;
+    text-align: center;
+  }
+  &__close {
+    position: absolute;
+    display: block;
+    top: 2rem;
+    right: 2rem;
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    will-change: transform;
+  }
+  &__body {
+    padding: 2rem;
+    @include mq(tablet) {
+      flex-grow: 1;
+    }
+  }
+  .booking-submit {
+    display: block;
+    margin-top: 1.3rem;
+    width: 100%;
+  }
+  &__calendar {
+    &--range,
+    &--range__mobile {
+      display: none;
+    }
+    &--calendar {
+      text-align: center;
+      .footer {
+        display: none;
+      }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .month-element {
+        text-transform: uppercase;
+        display: inline;
+      }
+      .month-wrapper {
+        padding: 3rem;
+        border: 1px solid #24221D;
+      }
+      .month-wrapper tr.caption th:first-child {
+        background: url('data:image/svg+xml;utf8,<svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.646446 3.64645C0.451184 3.84171 0.451184 4.15829 0.646446 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659729 4.53553 0.464467C4.34027 0.269205 4.02369 0.269205 3.82843 0.464467L0.646446 3.64645ZM11 3.5L1 3.5L1 4.5L11 4.5L11 3.5Z" fill="%23191919"/></svg>') no-repeat center;
+        cursor: pointer;
+      }
+      .month-wrapper tr.caption th:last-child {
+        background: url('data:image/svg+xml;utf8,<svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464465C6.97631 0.269203 6.65973 0.269203 6.46447 0.464465C6.2692 0.659728 6.2692 0.97631 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM3.99712e-08 4.5L10 4.5L10 3.5L-3.99712e-08 3.5L3.99712e-08 4.5Z" fill="%23191919"/></svg>') no-repeat center;
+        cursor: pointer;
+      }
+      .prev,
+      .next {
+        opacity: 0;
+      }
+      th,
+      td {
+        width: 4rem;
+        height: 4rem;
+        font: 400 14px/1 'Copyright Klim Type Foundry', sans-serif;
+        text-transform: capitalize;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .day {
+        display: flex;
+        cursor: pointer;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: all .3s ease-in-out;
+      }
+      .invalid {
+        cursor: not-allowed;
+      }
+      .day:hover,
+      .hovering {
+        background-color: rgba(88, 40, 29, 0.5);
+      }
+      .checked {
+        color: #fff;
+        background-color: #58281D;
+      }
+      .first-date-selected {
+        border-radius: 5px 0 0 5px;
+      }
+      .last-date-selected {
+        border-radius: 0 5px 5px 0;
+      }
+      .date-range-length-tip {
+        display: none !important;
+      }
+    }
+  }
+}

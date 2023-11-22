@@ -1,0 +1,15 @@
+body {
+  .wpcf7-spinner {
+    display: none !important;
+  }
+  .wpcf7-not-valid-tip {
+    margin-top: 5px;
+    font: 400 1rem/1.2 $f-text;
+  }
+  .wpcf7 form .wpcf7-response-output {
+    margin: 1rem 0 0;
+    padding: 0;
+    border: none;
+    @extend .text-lg;
+  }
+}

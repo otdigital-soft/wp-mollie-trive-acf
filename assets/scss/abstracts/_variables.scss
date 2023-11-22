@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+// CSS variables
+:root {
+  --gutter: 2rem;
+  @media only screen and (min-width: 768px) {
+    --gutter: 4rem;
+  }
+}
+
+
+/// Regular font family
+/// @type List
+$f-heading: 'Sainte Colombe', 'Arial', sans-serif !default;
+$f-text: 'Sohne', 'Arial', sans-serif !default;
+$f-caption: 'Sohne', 'Arial', sans-serif !default;
+
+/// Copy text color
+/// @type Color
+$clr-text: #000 !default;
+$clr-heading: #2f2f2f !default;
+$clr-subheading: #212121 !default;
+$clr-border: #D4D4CB;
+
+$clr-primary: #58281d !default;
+$clr-secondary: #d4c38e !default;
+$clr-olive-drab: #5f4920 !default;
+$clr-stone: #afbdbf !default;
+$clr-brick: #a44932 !default;
+$clr-off-white: #edecde !default;
+$clr-off-black: #2d2820 !default;
+$clr-black: #000 !default;
+$clr-white: #fff !default;
+
+
+/// Main brand color
+/// @type Color
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1440px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "phone-xsmall": 320px,
+  "phone-s21": 360px,
+  "phone-small": 375px,
+  "phone": 425px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "desktop-small": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1439px,
+  "desktop-ultra": 1599px,
+) !default;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

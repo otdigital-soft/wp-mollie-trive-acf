@@ -1,0 +1,23 @@
+.form {
+  &-control {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid $clr-black;
+    border-radius: 0;
+    color: $clr-black;
+    outline-color: $clr-black;
+    font: 400 1.4rem/2.1rem $f-text;
+    letter-spacing: -0.14px;
+    &::placeholder {
+      color: #333;
+    }
+  }
+  &-submit {
+    margin-top: 2rem;
+    @extend .btn;
+    @extend .btn-outline;
+  }
+}

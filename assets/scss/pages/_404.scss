@@ -1,0 +1,51 @@
+.error404 {
+  background-color: $clr-primary;
+  color: $clr-secondary;
+  .header--light:before {
+    content: none;
+  }
+  .header-logo__image {
+    filter: brightness(0) invert(80%) sepia(19%) saturate(540%) hue-rotate(8deg) brightness(94%) contrast(91%);
+  }
+  .header--light:not(.header--sticky):not(.is-opened) .hamburger span {
+    background-color: $clr-secondary;
+    &::before,
+    &::after {
+      background-color: $clr-secondary;
+    }
+  }
+  .header--light:not(.header--sticky):not(.is-opened) .header-booking {
+    border-color: $clr-secondary;
+    color: $clr-secondary;
+  }
+  .error-404 {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+    text-align: center;
+    @include mq(tablet) {
+      padding-top: vw(300px);
+      padding-bottom: vw(300px);
+    }
+    @include mq(desktop-wide) {
+      padding-top: 30rem;
+      padding-bottom: 30rem;
+    }
+    &__heading {
+      margin-bottom: 2rem;
+    }
+    &__link {
+      color: $clr-secondary;
+      &::after {
+        @include svg-background('<svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4L10 4L0 4Z" fill="%23d4c38e"/><path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464465C6.97631 0.269203 6.65973 0.269203 6.46447 0.464466C6.2692 0.659728 6.2692 0.97631 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM4.37114e-08 4.5L10 4.5L10 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="%23d4c38e"/></svg>');
+      }
+    }
+  }
+  .footer {
+    padding-top: 0;
+    height: auto;
+    background-color: transparent;
+    &-logo__wrapper {
+      display: none;
+    }
+  }
+}

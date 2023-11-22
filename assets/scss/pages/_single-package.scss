@@ -1,0 +1,157 @@
+.package-detail {
+  margin-top: 11.1rem;
+  margin-bottom: 6rem;
+  --gutter: 2rem;
+  @include mq(tablet) {
+    margin-top: 15rem;
+    margin-bottom: 2rem;
+  }
+  &__inner {
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+  &__media {
+    height: 51.5rem;
+    @include mq(tablet, max) {
+      margin-bottom: 4.3rem;
+    }
+    @include mq(tablet) {
+      width: vw(691px);
+      height: vw(984px);
+      max-width: 69.1rem;
+      max-height: 98.4rem;
+    }
+  }
+  &__content {
+    @include mq(tablet) {
+      width: vw(589px);
+      max-width: 58.9rem;
+    }
+  }
+  &__title {
+    margin-bottom: 3rem;
+    @include typography(44px, 44px, 74px, 78px, 400);
+    @include mq(tablet) {
+      margin-top: vw(80px);
+      margin-bottom: vw(50px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 8rem;
+      margin-bottom: 5rem;
+    }
+  }
+  &__copy {
+    margin-bottom: 4rem;
+    @include mq(tablet) {
+      margin-bottom: vw(30px);
+      width: vw(460px);
+      max-width: 46rem;
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 3rem;
+    }
+    ul li {
+      list-style-type: square;
+      font-size: 1.4rem;
+      &::marker {
+        color: $clr-primary;
+      }
+    }
+  }
+  &__terms {
+    margin-top: 4rem;
+    @include mq(tablet) {
+      margin-top: vw(84px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 8.4rem;
+    }
+    &-heading {
+      margin-bottom: 1.5rem;
+      font: 400 1.4rem/2.1rem $f-caption;
+      font-style: italic;
+      letter-spacing: 1.68px;
+      text-transform: uppercase;
+    }
+  }
+  &__booking {
+    @include mq(tablet, max) {
+      width: 100%;
+    }
+  }
+}
+
+.loop-package {
+  margin: 0 0 5rem;
+  @include mq(tablet) {
+    margin: 1.5rem 0;
+  }
+  &:nth-child(even) {
+    .package-detail__inner {
+      @include mq(tablet) {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+    }
+    .package-detail__content {
+      @include mq(tablet) {
+        padding-left: 0;
+        margin-left: vw(86px);
+      }
+      @include mq(desktop-wide) {
+        margin-left: 8.6rem;
+      }
+    }
+  }
+  .package-detail {
+    &__title {
+      margin-top: 0;
+      margin-bottom: 7rem;
+      @include mq(tablet) {
+        margin-bottom: auto;
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        display: flex;
+        padding-top: vw(95px);
+        padding-left: var(--gutter);
+        padding-bottom: vw(95px);
+        flex-direction: column;
+      }
+      @include mq(desktop-wide) {
+        padding-top: 9.5rem;
+        padding-bottom: 9.5rem;
+      }
+    }
+    &__terms {
+      display: none;
+    } 
+    &__media {
+      @include mq(tablet, max) {
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
+      }
+    }
+  }
+  .btn-outline + .underline-link {
+    @include mq(tablet, max) {
+      margin-top: 2rem;
+    }
+    @include mq(tablet) {
+      margin-left: 2.5rem;
+    }
+  }
+}
+
+.package-detail__terms.fancybox-content {
+  margin: 0;
+  max-width: 50rem;
+  background-color: $clr-white;
+  color: $clr-black;
+  opacity: 1;
+  visibility: visible;
+}

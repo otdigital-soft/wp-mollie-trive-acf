@@ -1,0 +1,30 @@
+.breadcrumbs {
+  border-bottom: 1px solid $clr-border;
+  .container {
+    @include mq(tablet) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+.breadcrumb {
+  &-trail {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font: 400 1.5rem/2.1rem $f-text;
+    color: $clr-black;
+    align-items: center;
+    flex-wrap: wrap;
+    @include mq(tablet) {
+      font-size: 1.6rem;
+      // border-bottom: 1px solid $clr-border;
+    }
+  }
+  .sep {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    @include triangle(right, $clr-primary, 8px, 8px);
+  }
+}

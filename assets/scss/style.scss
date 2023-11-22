@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendor/normalize',
+        'vendor/wp-core',
+        'vendor/cf7',
+        'vendor/slick',
+        'vendor/jcf',
+        'vendor/fancybox';
+
+// 3. Base stuff
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers', 'base/animation', 'base/grid';
+
+// 4. Layout-related sections
+@import 'layout/header',
+        'layout/footer',
+        'layout/sticky-booking-btn',
+        'layout/breadcrumb',
+        'layout/page-navigation',
+        'layout/pagination',
+        'layout/form',
+        'layout/lds',
+        'layout/booking';
+
+// 5. Components
+@import 'components/button', 'components/hamburger',
+        'components/default-banner',
+        'components/loop-dining',
+        'components/loop-room',
+        'components/loop-post';
+
+// 6. Pages
+@import 'pages/home',
+        'pages/rooms',
+        'pages/single-room',
+        'pages/single-dining',
+        'pages/dinings',
+        'pages/learn',
+        'pages/blog',
+        'pages/single-post',
+        'pages/explore',
+        'pages/single-package',
+        'pages/events',
+        'pages/gather',
+        'pages/gallery',
+        'pages/404';

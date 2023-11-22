@@ -1,0 +1,113 @@
+.page-template-gallery {
+  .default-banner {
+    &__image {
+      @include mq(tablet, max) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+.gallery-grid {
+  @include mq(tablet) {
+    display: grid;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: vw(113px) 0;
+    align-items: center;
+  }
+  @include mq(desktop-wide) {
+    grid-gap: 11.3rem 0;
+  }
+  .lds-wrapper {
+    @include mq(tablet) {
+      grid-column: span 2;
+    }
+  }
+}
+.gallery-image {
+  display: flex;
+  @include mq(tablet, max) {
+    margin-bottom: 2rem;
+  }
+  &__inner {
+    display: inline-block;
+  }
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  &:nth-child(6n+1),
+  &:nth-child(6n+4) {
+    @include mq(tablet) {
+      grid-column: span 2;
+      width: vw(1310px);
+      max-width: 131rem;
+    }
+    .gallery-image__inner {
+      @include mq(tablet) {
+        flex-grow: 1;
+        width: 100%;
+      }
+    }
+    img {
+      @include mq(tablet) {
+        height: vw(600px);
+        max-height: 60rem;
+      }
+    }
+  }
+  &:nth-child(6n+2),
+  &:nth-child(6n) {
+    @include mq(tablet) {
+      width: vw(477px);
+      max-width: 47.7rem;
+      img {
+        height: vw(700px);
+        max-height: 70rem;
+      }
+    }
+  }
+  &:nth-child(6n+3),
+  &:nth-child(6n+5) {
+    @include mq(tablet) {
+      width: vw(357px);
+      max-width: 35.7rem;
+      img {
+        height: vw(500px);
+        max-height: 50rem;
+      }
+    }
+  }
+  &:nth-child(6n+1) {
+    .gallery-image__inner {
+      margin-left: auto;
+    }
+  }
+  &:nth-child(6n+2),
+  &:nth-child(6n+4) {
+    @include mq(tablet) {
+      margin-left: var(--gutter);
+    }
+  }
+  &:nth-child(6n+3) {
+    @include mq(tablet) {
+      margin-left: vw(120px);
+    }
+    @include mq(desktop-wide) {
+      margin-left: 12rem;
+    }
+  }
+  &:nth-child(6n+5) {
+    @include mq(tablet) {
+      margin-left: vw(60px);
+    }
+    @include mq(desktop-wide) {
+      margin-left: 6rem;
+    }
+  }
+  .text-caption {
+    margin-top: 1rem;
+  }
+}
